@@ -4,9 +4,9 @@ roi_row = 250;
 roi_col = 50;
 %%
 inpFramesPath = '..\input\simple';
-curr_file_name = sprintf('Frame %d.jpg', 40);
+curr_file_name = sprintf('Frame %d.jpg', 1);
 curr_full_file_name = fullfile(inpFramesPath, curr_file_name);
-detector = vision.CascadeObjectDetector('CarDetector_0.01.xml');
+detector = vision.CascadeObjectDetector('CarDetector.xml');
 img = imread(curr_full_file_name);
 bbox = step(detector,img);
 bbox = test_false_positive(bbox);

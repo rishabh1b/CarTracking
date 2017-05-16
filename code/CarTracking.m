@@ -49,7 +49,7 @@ height = size(first_img,1)-roi_row;
 roi = [x,y,width,height];
 
 %% Detection init
-detector = vision.CascadeObjectDetector('CarDetector_0.01.xml');
+detector = vision.CascadeObjectDetector('CarDetector.xml');
 detector.UseROI = true;
 bbox_1 = step(detector,first_img,roi);
 bbox_2 = step(detector,second_img,roi);
@@ -132,10 +132,10 @@ for i=2:300
         RGB = insertText(RGB,thisBB(1:2),text_str,'FontSize',12,'BoxColor',...
             curr_bbox.color(k,:),'BoxOpacity',0.6,'TextColor','black', 'AnchorPoint','LeftBottom');
     end
-    %figure(1)
+    figure(1)
     %imshow(RGB)
     outputFileName = fullfile(outputFramesPath,curr_file_name);
-    imwrite(RGB,outputFileName);
+    %imwrite(RGB,outputFileName);
     prev_img = next_img;
     prev_bbox = curr_bbox;
 end
